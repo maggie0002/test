@@ -2,6 +2,10 @@ name: Test
 
 on:
   push:
+    tags:
+      - "ghcr"
+
+  workflow_dispatch:
 
 jobs:
   build:
