@@ -15,5 +15,9 @@ jobs:
       - run: |
           BASE_BRANCH=${GITHUB_REF#refs/heads/}
           echo "BASE_BRANCH=$BASE_BRANCH" >> $GITHUB_ENV
+        shell: bash
+
+      # Set required environment variables
+      - run: |
           echo $BASE_BRANCH
         shell: bash
