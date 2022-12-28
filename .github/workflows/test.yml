@@ -15,6 +15,6 @@ jobs:
         env:
           BASE_BRANCH: ${${GITHUB_REF#refs/heads/}}
         run: |
-          GIT_BRANCH=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
+          GIT_BRANCH=${{GITHUB_REF#refs/heads/}}
           echo "GIT_BRANCH=$GIT_BRANCH" >> $GITHUB_ENV
           echo $GIT_BRANCH
