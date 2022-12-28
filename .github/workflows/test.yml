@@ -1,0 +1,15 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  build:
+    name: "Test"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+
+      - name: Push docs
+        run: echo ${GITHUB_REF#refs/heads/}}
