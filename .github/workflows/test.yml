@@ -11,11 +11,9 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v3
 
-      - name: Push docs      
-        env:
-          BASE_BRANCH: ${${GITHUB_REF#refs/heads/}}
-        run: |
-          GIT_BRANCH=${GITHUB_REF#refs/heads/}
-          echo "GIT_BRANCH=$GIT_BRANCH" >> $GITHUB_ENV
-          echo $GIT_BRANCH
-          echo $GIT_BRANCH
+      # Set required environment variables
+      - run: |
+          BASE_BRANCH=${GITHUB_REF#refs/heads/}
+          echo "BASE_BRANCH=$BASE_BRANCH" >> $GITHUB_ENV
+          echo $BASE_BRANCH
+        shell: bash
