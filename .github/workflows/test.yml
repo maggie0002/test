@@ -21,3 +21,4 @@ jobs:
           balena_token: ${{ secrets.BALENA_TOKEN }}
           fleet: maggie0002/test-fleet
   
+  
