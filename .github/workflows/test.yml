@@ -6,7 +6,7 @@ on:
       - "*.*.*"
 
 env:
-  IMAGE: eu.gcr.io/path/to/image:tag\
+  IMAGE: eu.gcr.io/path/to/image:tag
 
 jobs:
   job0:
@@ -15,7 +15,7 @@ jobs:
       image: ${{ steps.set_image.outputs.image }}
     steps:
     - id: set_image
-      run: echo "image=$IMAGE" >> $GITHUB_OUTPUT
+      run: echo "image=testimg" >> $GITHUB_OUTPUT
 
   deploy-to-ghcr:
     runs-on: ubuntu-latest
@@ -48,7 +48,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ needs.job0.outputs.image }}/${{ github.event.repository.name }}
+          images: ${{needs.job1.outputs.output1}}${{ needs.job0.outputs.image }}/${{ github.event.repository.name }}
           flavor: |
             latest=true
           tags: |
