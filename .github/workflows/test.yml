@@ -15,7 +15,7 @@ jobs:
       image: ${{ steps.set_image.outputs.image }}
     steps:
     - id: set_image
-      run: echo "image=${{IMAGE}}" >> $GITHUB_OUTPUT
+      run: echo "image=$IMAGE" >> $GITHUB_OUTPUT
 
   deploy-to-ghcr:
     runs-on: ubuntu-latest
