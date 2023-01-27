@@ -5,6 +5,9 @@ on:
     tags:
       - "*.*.*"
 
+env:
+  TEST=${{ github.action_repository }}
+
 jobs:
   deploy-to-ghcr:
     runs-on: ubuntu-latest
@@ -37,7 +40,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ github.action_repository }}
+          images: ${{ github.repository }}
           flavor: |
             latest=true
           tags: |
