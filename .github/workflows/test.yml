@@ -6,6 +6,14 @@ on:
       - "*.*.*"
 
 jobs:
+  job0:
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.set_image.outputs.image }}
+    steps:
+    - id: set_image
+      run: echo "::set-output name=image::myimage"
+
   deploy-to-ghcr:
     runs-on: ubuntu-latest
     permissions:
@@ -37,7 +45,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.GITHUB_REPOSITORY_OWNER }}/${{ github.event.repository.name }}
+          images: ${{ needs.job0.outputs.image }}/${{ github.event.repository.name }}
           flavor: |
             latest=true
           tags: |
