@@ -23,4 +23,4 @@ jobs:
           sync_readme: true
           sync_tag: true
 
-      - run: cat test/balena.yml
+      - run: cat balena.yml
