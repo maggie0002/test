@@ -2,6 +2,8 @@ name: Deploy to GHCR
 
 on:
   push:
+    tags:
+      - "*.*.*"
 
 jobs:
   deploy-to-ghcr:
@@ -20,5 +22,6 @@ jobs:
           # Synchronise the GitHub README with the Balena Hub README
           path: test
           sync_readme: true
+          sync_tag: true
 
       - run: cat test/balena.yml
