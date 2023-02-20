@@ -18,3 +18,4 @@ jobs:
           mkdir ./dist/
           touch mutagen-agents.tar.gz
           cp mutagen-agents.tar.gz ./dist/
+          ls ./dist/
